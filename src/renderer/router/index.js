@@ -7,8 +7,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing-page',
-      component: require('@/components/MainPage').default
+      name: 'plugin',
+      component: require('@/pages/PluginPage').default,
+      children: [
+        {
+          path: '',
+          name: 'plugin-list',
+          component: require('@/pages/PluginList').default
+        }
+      ]
     },
     {
       path: '/a',

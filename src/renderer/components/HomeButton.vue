@@ -1,7 +1,5 @@
 <template>
-  <div class="home-button" flex="main:center cross:center" @click="clickHandler">
-    <i class="icon" :class="icon"></i>
-  </div>
+  <Button :icon="icon" size="l" noBorder style="font-size: 1.25rem"></Button>
 </template>
 
 <script>
@@ -18,7 +16,7 @@ export default {
   },
   computed: {
     icon () {
-      return this.isHome ? 'icon-home' : 'icon-arrow-left'
+      return this.isHome ? 'h-icon-home' : 'h-icon-left'
     }
   },
   methods: {

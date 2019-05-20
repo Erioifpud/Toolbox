@@ -637,22 +637,6 @@ asynckit@^0.4.0:
   resolved "https://registry.npm.taobao.org/asynckit/download/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-at-ui-style@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npm.taobao.org/at-ui-style/download/at-ui-style-1.5.1.tgz#db2057afb3aeb5961d33753cd4ff8bff82e913a0"
-  integrity sha1-2yBXr7OutZYdM3U81P+L/4LpE6A=
-
-at-ui@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.npm.taobao.org/at-ui/download/at-ui-1.3.3.tgz#20feafa2231fc69268537ed5b3994ca02a072f6d"
-  integrity sha1-IP6voiMfxpJoU37Vs5lMoCoHL20=
-  dependencies:
-    deepmerge "^2.0.1"
-    vue "^2.5.13"
-    vue-i18n "^7.4.1"
-    vue-router "^2.8.1"
-    vue-template-compiler "^2.5.13"
-
 atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.npm.taobao.org/atob/download/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
@@ -2913,7 +2897,7 @@ deep-is@~0.1.3:
   resolved "https://registry.npm.taobao.org/deep-is/download/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
 
-deepmerge@^2.0.1, deepmerge@^2.1.1:
+deepmerge@^2.1.1:
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/deepmerge/download/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
   integrity sha1-XT/yKgHAD2RUBaL7wX0HeKGAEXA=
@@ -4463,6 +4447,14 @@ header-case@^1.0.0:
     no-case "^2.2.0"
     upper-case "^1.1.3"
 
+heyui@^1.20.0:
+  version "1.20.0"
+  resolved "https://registry.npm.taobao.org/heyui/download/heyui-1.20.0.tgz#a7803fabce03d5745f4c81ccd233ffcbd6c554fd"
+  integrity sha1-p4A/q84D1XRfTIHM0jP/y9bFVP0=
+  dependencies:
+    manba "^1.2.8"
+    vue "^2.6.10"
+
 highlight.js@^9.3.0:
   version "9.15.6"
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.15.6.tgz#72d4d8d779ec066af9a17cb14360c3def0aa57c4"
@@ -5704,6 +5696,11 @@ mamacro@^0.0.3:
   version "0.0.3"
   resolved "https://registry.npm.taobao.org/mamacro/download/mamacro-0.0.3.tgz#ad2c9576197c9f1abf308d0787865bd975a3f3e4"
   integrity sha1-rSyVdhl8nxq/MI0Hh4Zb2XWj8+Q=
+
+manba@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.npm.taobao.org/manba/download/manba-1.2.8.tgz#b7f80814b7ccc412e34e867ab399e92ffd2afc0c"
+  integrity sha1-t/gIFLfMxBLjToZ6s5npL/0q/Aw=
 
 map-age-cleaner@^0.1.1:
   version "0.1.3"
@@ -8913,11 +8910,6 @@ vue-html-loader@^1.2.4:
     loader-utils "^1.0.2"
     object-assign "^4.1.0"
 
-vue-i18n@^7.4.1:
-  version "7.8.1"
-  resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-7.8.1.tgz#2ce4b6efde679a1e05ddb5d907bfc1bc218803b2"
-  integrity sha1-LOS2795nmh4F3bXZB7/BvCGIA7I=
-
 vue-loader@^15.2.4:
   version "15.7.0"
   resolved "https://registry.npm.taobao.org/vue-loader/download/vue-loader-15.7.0.tgz#27275aa5a3ef4958c5379c006dd1436ad04b25b3"
@@ -8928,11 +8920,6 @@ vue-loader@^15.2.4:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
-
-vue-router@^2.8.1:
-  version "2.8.1"
-  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-2.8.1.tgz#9833c9ee57ac83beb0269056fefee71713f20695"
-  integrity sha1-mDPJ7lesg76wJpBW/v7nFxPyBpU=
 
 vue-router@^3.0.1:
   version "3.0.6"
@@ -8947,7 +8934,7 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.13, vue-template-compiler@^2.5.16:
+vue-template-compiler@^2.5.16:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
   integrity sha1-MjtPNJXwT6o1AzN6gvXWUHeZycw=
@@ -8960,7 +8947,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
 
-vue@^2.5.13, vue@^2.5.16:
+vue@^2.5.16, vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha1-pysaQqTYKnIepDjRtr9V5mGVxjc=
