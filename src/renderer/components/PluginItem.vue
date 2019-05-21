@@ -1,15 +1,15 @@
 <template>
-  <div class="h-panel plugin-item">
+  <div class="h-panel plugin-item" @click="handleClick">
     <div class="h-panel-bar">
-      <span class="h-panel-title">{{ title }}</span>
+      <span class="h-panel-title">{{ plugin.name }}</span>
       <span class="h-panel-right">
-        <span class="h-tag h-tag-yellow" v-if="node">Node.js</span>
+        <span class="h-tag h-tag-yellow" v-if="plugin.nodeOnly">Node.js</span>
         <span class="h-tag h-tag-primary" v-else>All</span>
         <!-- <a @click="handleClick">More</a> -->
       </span>
     </div>
     <div class="h-panel-body">
-      {{ content }}
+      {{ plugin.desc }}
     </div>
   </div>
 </template>
@@ -17,19 +17,21 @@
 <script>
 export default {
   props: {
-    title: String,
-    content: String,
-    node: {
-      type: Boolean,
-      default: true
+    plugin: {
+      type: Object,
+      required: true,
+      validator (val) {
+        const { name, desc } = val
+        if (!name || !desc) {
+          return false
+        }
+        return true
+      }
     }
   },
   methods: {
     handleClick () {
-      this.$Modal({
-        title: 'Js',
-        content: '这是使用Js调用的弹出框'
-      })
+      this.$router.push(this.plugin.path)
     }
   }
 }

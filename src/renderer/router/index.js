@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import plugins from '@/plugins'
+import store from '@/store'
 
 Vue.use(Router)
 
@@ -14,7 +16,24 @@ export default new Router({
           path: '',
           name: 'plugin-list',
           component: require('@/pages/PluginList').default
-        }
+        },
+        ...Object.entries(plugins).map(([k, v]) => {
+          const Component = Vue.extend(v)
+          const vm = new Component()
+          console.log(store)
+          if (vm.plugin.hide) {
+            return null
+          }
+          store.commit('addPlugin', {
+            ...vm.plugin,
+            path: k
+          })
+          return {
+            path: k,
+            name: k,
+            component: v
+          }
+        }).filter(route => !!route)
       ]
     },
     {

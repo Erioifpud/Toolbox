@@ -1,5 +1,5 @@
 <template>
-  <Button :icon="icon" size="l" noBorder style="font-size: 1.25rem"></Button>
+  <Button :icon="icon" size="l" noBorder style="font-size: 1.25rem" @click="handleClick"></Button>
 </template>
 
 <script>
@@ -20,9 +20,7 @@ export default {
     }
   },
   methods: {
-    clickHandler () {
-      console.log(this.$route)
-      console.log(this.$router)
+    handleClick () {
       if (!this.isHome) {
         this.$router.back()
       }

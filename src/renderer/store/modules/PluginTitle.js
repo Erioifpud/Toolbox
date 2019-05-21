@@ -7,7 +7,7 @@ const mutations = {
     state.titles.push(title)
   },
   removeTitle (state) {
-    if (state.title.length > 1) {
+    if (state.titles.length > 1) {
       state.titles.pop()
     }
   }

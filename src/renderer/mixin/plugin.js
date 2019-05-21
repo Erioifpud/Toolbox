@@ -6,14 +6,15 @@ export default {
         desc: '',
         tags: [],
         settings: undefined,
-        nodeOnly: false
+        nodeOnly: false,
+        hide: false
       }
     }
   },
-  activated () {
-    this.$store.commit('addTitle', this.name)
+  mounted () {
+    this.$store.commit('addTitle', this.plugin.name)
   },
-  deactivated () {
+  beforeDestroy () {
     this.$store.commit('removeTitle')
   }
 }

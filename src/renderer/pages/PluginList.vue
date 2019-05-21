@@ -1,8 +1,7 @@
 <template>
   <div class="plugin-list">
     <Row :space="10">
-      <Cell :xs='24' :sm='12' :md='8' :lg='4' :xl='2'>
-        <!-- 直接传个plugin对象 -->
+      <!-- <Cell :xs='24' :sm='12' :md='8' :lg='4' :xl='2'>
         <plugin-item title="串口调试" content="串口数据监视" :node="true"></plugin-item>
       </Cell>
       <Cell :xs='24' :sm='12' :md='8' :lg='4' :xl='2'>
@@ -10,17 +9,29 @@
       </Cell>
       <Cell :xs='24' :sm='12' :md='8' :lg='4' :xl='2'>
         <plugin-item title="颜色变换" content="计算色彩的darken或lighten" :node="false"></plugin-item>
+      </Cell> -->
+      <Cell :xs='24' :sm='12' :md='8' :lg='4' :xl='2' v-for="plugin in plugins" :key="plugin.id">
+        <plugin-item :plugin="plugin"></plugin-item>
       </Cell>
     </Row>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import PluginItem from '@/components/PluginItem'
 
 export default {
   components: {
     PluginItem
+  },
+  computed: {
+    ...mapState({
+      plugins: state => state.PluginList.plugins
+    })
+  },
+  mounted () {
+    console.log(this.$store)
   }
 }
 </script>
