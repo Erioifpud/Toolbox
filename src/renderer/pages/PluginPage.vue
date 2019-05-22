@@ -1,6 +1,6 @@
 <template>
   <Layout :headerFixed="true">
-    <HHeader theme="white" style="border-bottom: 1px solid #e2ecf4" flex="dir:left box:justify">
+    <HHeader theme="white" style="border-bottom: 1px solid #e2ecf4; z-index: 1000" flex="dir:left box:justify">
       <home-button></home-button>
       <div class="toolbox__title" flex-box="1" style="text-align: center">
         {{ getTitle }}
@@ -9,7 +9,9 @@
         <Button icon="h-icon-setting" size="l" noBorder style="font-size: 1.25rem"></Button>
       </div>
     </HHeader>
-    <router-view></router-view>
+    <div class="toolbox__content">
+      <router-view></router-view>
+    </div>
   </Layout>
 </template>
 
@@ -27,6 +29,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.toolbox {
+  &__content {
+    padding: 1rem;
+  }
+}
 </style>

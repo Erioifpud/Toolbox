@@ -29,9 +29,6 @@ export default {
     ...mapState({
       plugins: state => state.PluginList.plugins
     })
-  },
-  mounted () {
-    console.log(this.$store)
   }
 }
 </script>
@@ -39,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .plugin-list {
   box-sizing: border-box;
-  padding: 1rem;
+  // padding: 1rem;
   &__item {
 
   }
