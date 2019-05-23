@@ -97,11 +97,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@caohenghu/vue-colorpicker@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/@caohenghu/vue-colorpicker/download/@caohenghu/vue-colorpicker-1.1.1.tgz#af9a3d8d58296be09140a3a8ca8327ad326edc91"
-  integrity sha1-r5o9jVgpa+CRQKOoyoMnrTJu3JE=
-
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/@types/events/download/@types/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"

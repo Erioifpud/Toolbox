@@ -20,7 +20,6 @@ export default new Router({
         ...Object.entries(plugins).map(([k, v]) => {
           const Component = Vue.extend(v)
           const vm = new Component()
-          console.log(store)
           if (vm.plugin.hide) {
             return null
           }

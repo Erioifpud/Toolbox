@@ -14,7 +14,7 @@
     </div>
     <div class="h-input-group">
       <span class="h-input-addon">HSL</span>
-      <input type="text" v-model="hslColor" readonly/>
+      <input type="text" v-model="hsl" readonly/>
     </div>
     <div class="color-preview__palette" :style="style"></div>
   </div>
@@ -22,20 +22,43 @@
 
 <script>
 export default {
+  model: {
+    event: 'valueChange',
+    prop: 'hex'
+  },
   props: {
     readOnly: {
       type: Boolean,
       default: false
+    },
+    hex: {
+      type: String,
+      default: '#000000'
     }
   },
   data () {
     return {
-      hexColor: '#000000',
-      rgbColor: '',
-      hsvColor: '',
-      hslColor: ''
+      hexColor: this.hex
     }
   },
+  watch: {
+    hex (val) {
+      this.hexColor = val
+    },
+    hexColor (val) {
+      this.$emit('hex-change', {
+        ...this.hslvObj,
+        ...this.rgbObj,
+        hex: val
+      })
+      this.$emit('valueChange', val)
+    }
+  },
+  // methods: {
+  //   handleInput (v) {
+  //     console.log(v)
+  //   }
+  // },
   computed: {
     style () {
       return `background-color: ${this.hexColor}`
@@ -50,19 +73,34 @@ export default {
       const { r, g, b } = this.rgbObj
       return `${r}, ${g}, ${b}`
     },
-    hsv () {
+    hslvObj () {
       const { r, g, b } = this.rgbObj
-      const [rp, gp, bp] = [r / 255, g / 255, b / 255]
-      const cMax = Math.max(rp, gp, bp)
-      const cMin = Math.min(rp, gp, bp)
+      const cMax = Math.max(r, g, b)
+      const cMin = Math.min(r, g, b)
       const delta = cMax - cMin
       const hueCalc = {
-        [rp]: 60 * (((gp - bp) / delta) % 6),
-        [gp]: ((bp - rp) / delta) + 120,
-        [bp]: ((rp - gp) / delta) + 240
+        [r]: 60 * (((g - b) / delta) % 6),
+        [g]: 60 * ((b - r) / delta) + 120,
+        [b]: 60 * ((r - g) / delta) + 240
       }
-      const hue = hueCalc[]
-
+      const hue = hueCalc[cMax] || 0
+      const saturation = cMax ? (delta / cMax) : 0
+      const value = cMax / 255
+      const light = (cMax + cMin) / 510
+      return {
+        h: hue,
+        s: saturation,
+        l: light,
+        v: value
+      }
+    },
+    hsl () {
+      const { h, s, l } = this.hslvObj
+      return `${Math.round(h)}, ${s.toPrecision(2)}, ${l.toPrecision(2)}`
+    },
+    hsv () {
+      const { h, s, v } = this.hslvObj
+      return `${Math.round(h)}, ${s.toPrecision(2)}, ${v.toPrecision(2)}`
     }
   }
 }
