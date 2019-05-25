@@ -2,12 +2,10 @@
   <div class="component-preview">
     <div class="h-panel">
       <div class="h-panel-bar">
-        <span class="h-panel-title">标题</span>
+        <span class="h-panel-title">色彩选择</span>
       </div>
       <div class="h-panel-body">
-        <p>content</p>
-        <p>content</p>
-        <p>content</p>
+        <color-picker></color-picker>
       </div>
     </div>
   </div>
@@ -15,9 +13,13 @@
 
 <script>
 import plugin from '@/mixin/plugin'
+import ColorPicker from './components/ColorPicker'
 
 export default {
   mixins: [plugin],
+  components: {
+    ColorPicker
+  },
   data () {
     return {
       plugin: {
