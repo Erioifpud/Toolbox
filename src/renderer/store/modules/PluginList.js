@@ -16,7 +16,7 @@ const getters = {
   classifiedPlugins (state) {
     return state.plugins.reduce((a, b) => {
       b.tags.forEach(tag => {
-        a[tag] || (a[tag] = []).push(b)
+        (a[tag] || (a[tag] = [])).push(b)
       })
       return a
     }, {})
