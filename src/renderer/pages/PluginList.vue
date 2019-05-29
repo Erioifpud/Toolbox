@@ -16,6 +16,13 @@ export default {
   components: {
     PluginItem
   },
+  data () {
+    return {
+      settings: [
+
+      ]
+    }
+  },
   computed: {
     ...mapState({
       plugins: state => state.PluginList.plugins

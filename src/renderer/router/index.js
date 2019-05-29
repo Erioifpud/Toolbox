@@ -5,7 +5,7 @@ import store from '@/store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -41,3 +41,24 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const route = to.matched.slice(-1)[0]
+  if (!route) {
+    return next()
+  }
+  const component = route.components.default
+  if (!component) {
+    return next()
+  }
+  // TODO
+  const settings = component.data().settings
+  if (settings) {
+    store.commit('changeSettings', settings)
+  } else {
+    store.commit('changeSettings', null)
+  }
+  next()
+})
+
+export default router

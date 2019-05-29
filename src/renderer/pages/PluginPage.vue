@@ -6,7 +6,9 @@
         {{ getTitle }}
       </div>
       <div class="toolbox__setting">
-        <Button icon="h-icon-setting" size="l" noBorder style="font-size: 1.25rem"></Button>
+        <Badge :count="~~settingTips" :dot="true" position="right">
+          <Button @click="open('right')" class="toolbox__setting-btn" icon="h-icon-setting" size="l" noBorder style="font-size: 1.25rem"></Button>
+        </Badge>
       </div>
     </HHeader>
     <div class="toolbox__content">
@@ -16,15 +18,41 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import HomeButton from '@/components/HomeButton'
+import ModalGlobalSettings from '@/components/ModalGlobalSettings'
 
 export default {
   components: {
-    HomeButton
+    HomeButton,
+    ModalGlobalSettings
   },
   computed: {
-    ...mapGetters(['getTitle'])
+    ...mapGetters(['getTitle']),
+    ...mapState({
+      settingTips: state => state.Settings.settingTips
+    })
+  },
+  methods: {
+    open (place) {
+      this.$Modal({
+        type: `drawer-${place}`,
+        width: 400,
+        component: {
+          vue: this.$settingsParse(),
+          data: { subparam: 'test1' }, // 子组件使用props params参数获取数据，建议使用datas
+          datas: { fruit: this.value } // 子组件直接使用 props 即可使用，兼容性 1.15.0+
+        },
+        events: {
+          success: (modal, data) => {
+            this.value = data
+          }
+        }
+      })
+    }
+  },
+  mounted () {
+    console.log(this.settingTips)
   }
 }
 </script>
@@ -34,5 +62,11 @@ export default {
   &__content {
     padding: 1rem;
   }
+
+  // &__setting-btn {
+  //   padding: 10px !important;
+  //   margin-left: 10px;
+  //   margin-right: 10px;
+  // }
 }
 </style>
